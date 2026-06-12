@@ -1,4 +1,4 @@
 #include <stdlib.h>
 void limpar () {
-    system("cls");
+    system("cls || clear");
 }
