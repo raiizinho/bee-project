@@ -6,12 +6,10 @@
 #include "menus.h"
 #include "sensores.h"
 #include "storage.h"
+#include "relatorios.h"
 #include "utils.h"
 
-static void menuRelatorios(void);
-
-void menuPrincipal(void)
-{
+void menuPrincipal(void) {
     int opcao;
 
     do {
@@ -48,27 +46,4 @@ void menuPrincipal(void)
                 break;
         }
     } while (opcao != 5);
-}
-
-static void menuRelatorios(void)
-{
-    int opcao;
-
-    do {
-        limparTela();
-        magenta("===== RELATORIOS =====\n");
-        printf("1. Media geral de producao de mel\n");
-        printf("2. Media de temperatura dos sensores\n");
-        printf("3. Quantidade de abelhas por regiao\n");
-        printf("4. Voltar\n");
-        opcao = lerInteiro("Escolha uma opcao: ");
-
-        if (opcao >= 1 && opcao <= 3) {
-            amarelo("\nModulo de relatorios reservado para implementacao do grupo.\n");
-            pausar();
-        } else if (opcao != 4) {
-            vermelho("\nOpcao invalida.\n");
-            pausar();
-        }
-    } while (opcao != 4);
 }
