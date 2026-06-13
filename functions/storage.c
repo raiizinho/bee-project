@@ -13,6 +13,7 @@
 
 #define ARQUIVO_ABELHAS "database/abelhas.bin"
 #define ARQUIVO_MANEJOS "database/agenda.bin"
+#define ARQUIVO_SENSORES "database/sensores.bin"
 
 void carregarDados(void)
 {
@@ -41,8 +42,19 @@ void carregarDados(void)
         fclose(arquivo);
     }
 
+    arquivo = fopen(ARQUIVO_SENSORES, "rb");
+    if (arquivo != NULL) {
+        if (fread(&totalSensores, sizeof(int), 1, arquivo) != 1 || totalSensores < 0 || totalSensores > MAX_SENSORES) {
+            totalSensores = 0;
+        } else if (fread(sensores, sizeof(Sensor), totalSensores, arquivo) != (size_t)totalSensores) {
+            totalSensores = 0;
+        }
+        fclose(arquivo);
+    }
+
     reorganizarIdsAbelhas();
     reorganizarIdsManejos();
+    reorganizarIdsSensores();
 }
 
 void salvarAbelhas(void)
@@ -77,8 +89,24 @@ void salvarManejos(void)
     fclose(arquivo);
 }
 
+void salvarSensores(void)
+{
+    FILE *arquivo = fopen(ARQUIVO_SENSORES, "wb");
+
+    if (arquivo == NULL) {
+        printf("Erro ao salvar o arquivo de sensores.\n");
+        return;
+    }
+
+    fwrite(&totalSensores, sizeof(int), 1, arquivo);
+    fwrite(sensores, sizeof(Sensor), totalSensores, arquivo);
+
+    fclose(arquivo);
+}
+
 void salvarTudo(void)
 {
     salvarAbelhas();
     salvarManejos();
+    salvarSensores();
 }

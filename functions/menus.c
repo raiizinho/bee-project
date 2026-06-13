@@ -4,10 +4,10 @@
 #include "agenda.h"
 #include "colors.h"
 #include "menus.h"
+#include "sensores.h"
 #include "storage.h"
 #include "utils.h"
 
-static void menuSensores(void);
 static void menuRelatorios(void);
 
 void menuPrincipal(void)
@@ -48,31 +48,6 @@ void menuPrincipal(void)
                 break;
         }
     } while (opcao != 5);
-}
-
-static void menuSensores(void)
-{
-    int opcao;
-
-    do {
-        limparTela();
-        amarelo("===== GERENCIAR SENSORES =====\n");
-        printf("1. Cadastrar sensor\n");
-        printf("2. Listar sensores\n");
-        printf("3. Buscar por ID da abelha\n");
-        printf("4. Alterar leitura\n");
-        printf("5. Remover\n");
-        printf("6. Voltar\n");
-        opcao = lerInteiro("Escolha uma opcao: ");
-
-        if (opcao >= 1 && opcao <= 5) {
-            amarelo("\nModulo de sensores reservado para implementacao do grupo.\n");
-            pausar();
-        } else if (opcao != 6) {
-            vermelho("\nOpcao invalida.\n");
-            pausar();
-        }
-    } while (opcao != 6);
 }
 
 static void menuRelatorios(void)

@@ -2,6 +2,7 @@
 
 #define MAX_ABELHAS 50
 #define MAX_MANEJOS 100
+#define MAX_SENSORES 100
 
 typedef struct {
     int id;
@@ -19,5 +20,12 @@ typedef struct {
     char descricao[120];
     char status[20];
 } Manejo;
+
+typedef struct {
+    int id;
+    int idAbelha;
+    char tipo[30];
+    float valor;
+} Sensor;
 
 void executarSistema(void);
