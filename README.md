@@ -1,52 +1,48 @@
 # Trabalho: Sistema BeeCare
 
-Integrantes: Rai Rodrigues, Pedro Lima e Lucas Lima
+Integrantes: Raí Rodrigues, Pedro Lima e Lucas Lima
 
-Disciplina: Algoritmos e Programacao I
+Disciplina: Algoritmos e Programação I
 
-Professora: Dra. Alcilene Dalilia de Sousa
+Professora: Dra. Alcilene Dalília de Sousa
 
-## Descricao
+## Descrição
 
-O BeeCare e um sistema em linguagem C para cadastro de abelhas sem ferrao e controle de manejo por agenda.
-
-## MVP
-
-O MVP da BeeCare e um sistema simples para cadastrar abelhas sem ferrao e organizar uma agenda de manejo com datas importantes, como revisoes, alimentacao, limpeza, troca de caixa, divisao de colonia e outras atividades do meliponicultor.
-
-Nesta versao, as rotas de sensores e relatorios aparecem no menu principal, mas ficam reservadas para implementacao do restante do grupo.
+O BeeCare é um sistema em linguagem C para cadastro de abelhas sem ferrão e controle de manejo por agenda.
 
 ## Funcionalidades
 
 - Cadastrar, listar, buscar, alterar e remover abelhas.
 - Cadastrar, listar, buscar por data, buscar por abelha, alterar e remover manejos.
-- Menus de sensores e relatorios mantidos como espaco para integracao com o grupo.
-- Validacao simples de datas no formato `dd/mm/aaaa`.
-- Confirmacao antes de exclusoes.
-- Reorganizacao dos vetores apos remover registros.
-- Persistencia dos dados em arquivos binarios dentro da pasta `database`.
+- Monitoramento por sensores.
+- Geração de relatórios.
+- Validação simples de datas no formato `dd/mm/aaaa`.
+- Confirmação antes de exclusões.
+- Reorganização dos vetores após remover registros.
+- Persistência dos dados em arquivos binários dentro da pasta `database`.
 
-## Arquivos de dados
+## Arquivos de Dados
 
 Os dados ficam salvos em:
 
 - `database/abelhas.bin`
 - `database/agenda.bin`
+- `database/sensores.bin`
 
-Caso os arquivos ainda nao existam, o sistema cria e salva os dados automaticamente durante o uso.
+Caso os arquivos ainda não existam, o sistema cria e salva os dados automaticamente durante o uso.
 
-Os arquivos `.bin` salvam o total de registros e depois os dados das structs. Ao abrir o programa, esses dados voltam para os vetores, permitindo acesso no codigo como `abelhas[i].nomePopular`, `abelhas[i].regiao`, `manejos[i].data` e assim por diante.
+Os arquivos `.bin` salvam o total de registros e depois os dados das structs. Ao abrir o programa, esses dados voltam para os vetores, permitindo acesso no código como `abelhas[i].nomePopular`, `abelhas[i].regiao`, `manejos[i].data` e assim por diante.
 
-## Compilacao
+## Compilação
 
 ```bash
-gcc -I include src/main.c .\functions\* .\jobs\* -o build/beecare
+gcc -I include src/main.c .\functions\* .\jobs\* -o build/BeeTracker
 ```
 
-No Windows, tambem pode ser usado:
+No Windows, também pode ser usado:
 
 ```bash
-gcc -I include src/main.c .\functions\* .\jobs\* -o build/beecare.exe
+gcc -I include src/main.c .\functions\* .\jobs\* -o build/BeeTracker.exe
 ```
 
 ## Execução
@@ -65,4 +61,4 @@ build\beecare.exe
 
 ## Bugs conhecidos
 
-Os menus de sensores e relatorios ainda nao executam operacoes completas, pois foram deixados para integracao com as partes dos outros integrantes.
+nenhum bug conhecido
