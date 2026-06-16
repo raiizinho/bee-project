@@ -50,13 +50,13 @@ gcc -I include src/main.c .\functions\* .\jobs\* -o build/BeeTracker.exe
 Linux/macOS:
 
 ```bash
-./build/beecare
+./build/BeeTracker
 ```
 
 Windows:
 
 ```bash
-build\beecare.exe
+build\BeeTracker.exe
 ```
 
 ## Bugs conhecidos
