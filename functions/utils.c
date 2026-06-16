@@ -27,7 +27,7 @@ void lerLinha(const char *mensagem, char *destino, int tamanho)
     destino[strcspn(destino, "\r\n")] = '\0';
 
     if (!leuLinhaCompleta) {
-        while ((caractere = getchar()) != '\n' && caractere != EOF) {
+        while ((caractere = getchar()) != '\n') {   
         }
     }
 }
